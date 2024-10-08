@@ -1,0 +1,8 @@
+cdt_name:
+- cos7
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge diffpy.srmise_rc
+docker_image:
+- quay.io/condaforge/linux-anvil-cos7-x86_64
