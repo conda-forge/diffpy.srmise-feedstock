@@ -1,18 +1,20 @@
 {% set name = "diffpy.srmise" %}
-{% set version = "0.6.1rc2" %}
+{% set version = "0.6.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://test.pypi.io/packages/source/d/diffpy_srmise/diffpy_srmise-{{ version }}.tar.gz
-  sha256: 09d5f9107262d732530cc6817fee5a817324e2f9ee5c3575a72440d4cf3dbb74
+  url: https://pypi.io/packages/source/d/diffpy_srmise/diffpy_srmise-{{ version }}.tar.gz
+  sha256: 5d964385ac1abfae56dd63fc5f920e3a8b07e5311b9b4498fd58b278511cadd2
 
 build:
   noarch: python
   number: 0
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
+  entry_points:
+    - srmise = diffpy.srmise.applications.extract:main
 
 requirements:
   host:
