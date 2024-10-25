@@ -1,5 +1,5 @@
 {% set name = "diffpy.srmise" %}
-{% set version = "0.6.1" %}
+{% set version = "0.7.0rc0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/d/diffpy_srmise/diffpy_srmise-{{ version }}.tar.gz
-  sha256: 5d964385ac1abfae56dd63fc5f920e3a8b07e5311b9b4498fd58b278511cadd2
+  sha256: f53ce9685f47ba9f17e5522b75532f3e81e8757ecbc245b817fb0f3fff5dd73c
 
 build:
   noarch: python
@@ -18,13 +18,13 @@ build:
 
 requirements:
   host:
-    - python >=3.10
+    - python >=3.11
     - setuptools
     - setuptools-git-versioning >=2.0
     - pip
 
   run:
-    - python >=3.10
+    - python >=3.11
     - numpy
     - scipy
     - matplotlib-base
