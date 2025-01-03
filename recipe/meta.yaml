@@ -1,3 +1,4 @@
+{% set python_min = '3.11' %}
 {% set name = "diffpy.srmise" %}
 {% set version = "0.7.0" %}
 
@@ -6,25 +7,25 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/d/diffpy_srmise/diffpy_srmise-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/d/diffpy_srmise/diffpy_srmise-{{ version }}.tar.gz
   sha256: 5dfd80268d129242091bd740c4ec37f7eb30d2ab88a4e61f49c5a8a36c558995
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
   entry_points:
     - srmise = diffpy.srmise.applications.extract:main
 
 requirements:
   host:
-    - python >=3.11
+    - python {{ python_min }}
     - setuptools
     - setuptools-git-versioning >=2.0
     - pip
 
   run:
-    - python >=3.11
+    - python >={{ python_min }}
     - numpy
     - scipy
     - matplotlib-base
@@ -33,6 +34,7 @@ test:
   requires:
     - pip
     - pytest
+    - python {{ python_min }}
   imports:
     - diffpy.srmise
   source_files:
