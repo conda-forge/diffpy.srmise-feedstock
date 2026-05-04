@@ -1,6 +1,6 @@
-{% set python_min = '3.11' %}
+{% set python_min = "3.11" %}
 {% set name = "diffpy.srmise" %}
-{% set version = "0.7.0" %}
+{% set version = "0.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,11 +8,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/d/diffpy_srmise/diffpy_srmise-{{ version }}.tar.gz
-  sha256: 5dfd80268d129242091bd740c4ec37f7eb30d2ab88a4e61f49c5a8a36c558995
+  sha256: 11cf6b1e82daecde98c70729ee29241a47c6dad87d62d2e7e3ea6d73b2c13d3f
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
   entry_points:
     - srmise = diffpy.srmise.applications.extract:main
@@ -30,7 +30,7 @@ requirements:
     - scipy
     - matplotlib-base
 
-test: 
+test:
   requires:
     - pip
     - pytest
