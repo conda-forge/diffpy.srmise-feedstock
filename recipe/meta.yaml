@@ -1,6 +1,6 @@
-{% set python_min = '3.11' %}
+{% set python_min = '3.12' %}
 {% set name = "diffpy.srmise" %}
-{% set version = "0.7.0" %}
+{% set version = "0.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
   entry_points:
     - srmise = diffpy.srmise.applications.extract:main
@@ -29,12 +29,18 @@ requirements:
     - numpy
     - scipy
     - matplotlib-base
+    - bg-mpl-stylesheets
 
 test: 
   requires:
     - pip
     - pytest
     - python {{ python_min }}
+    - flake8
+    - codecov
+    - coverage
+    - pytest-cov
+    - pytest-env
   imports:
     - diffpy.srmise
   source_files:
