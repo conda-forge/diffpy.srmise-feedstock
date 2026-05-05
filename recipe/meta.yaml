@@ -29,12 +29,18 @@ requirements:
     - numpy
     - scipy
     - matplotlib-base
+    - bg-mpl-stylesheets
 
 test:
   requires:
     - pip
     - pytest
     - python {{ python_min }}
+    - flake8
+    - codecov
+    - coverage
+    - pytest-cov
+    - pytest-env
   imports:
     - diffpy.srmise
   source_files:
